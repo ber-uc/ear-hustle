@@ -11,8 +11,8 @@ CREATE TABLE user (
     playlistID VARCHAR(255) NOT NULL,
     genre VARCHAR(255),
     playlist_name VARCHAR(255),  
-    creation_date INT NOT NULL,
-    playlist_duration VARCHAR(255) NOT NULL,
+    creation_date DATE NOT NULL,
+    playlist_duration TIME(255) NOT NULL,
     PRIMARY KEY (playlistID)
     );
     
@@ -21,6 +21,6 @@ CREATE TABLE user (
     songID VARCHAR(255) NOT NULL,
     genre VARCHAR(255),
     artist_name VARCHAR(255),
-    song_length INT NOT NULL,
+    song_length TIME NOT NULL,
     PRIMARY KEY (songID)
     );
