@@ -5,7 +5,25 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import = "java.io.*,java.util.*,java.sql.*"%>
 <!DOCTYPE html>
+<%
+
+try {//Use a try/catch block to catch any database exceptions
+//Create a connection to the database
+Class.forName("com.mysql.cj.jdbc.Driver");
+Connection con = DriverManager.getConnection(
+"jdbc:mysql://localhost:3306/earhustlers", "root", "admin");
+
+//Create a new SQL statement using the connection
+Statement stmt = con.createStatement();
+
+//Execute the SQL statement to retrieve a result set of records from the database
+ResultSet rs = stmt.executeQuery("SELECT * FROM user");
+
+
+    %>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -57,3 +75,14 @@
         </form>
     </body>
 </html>
+
+<% 
+//Use a while loop to iterate through the result set of records
+while (rs.next()){
+
+    }
+    //close the connection
+    con.close();
+    } catch (Exception e){
+    e.printStackTrace();
+    } %>
